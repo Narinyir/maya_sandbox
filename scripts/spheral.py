@@ -3,10 +3,10 @@ from math import sqrt
 import random
 
 
-def spheral_vector(vect=OpenMaya.MFloatVector):
+def spheral_vector(vectype=OpenMaya.MFloatVector):
     '''Generate a random unit vector (Marsaglia 1972)
 
-    :returns: OpenMaya.MVector
+    :param vectype: Return type of vector
     '''
 
     d = 1
@@ -17,14 +17,14 @@ def spheral_vector(vect=OpenMaya.MFloatVector):
     x = 2 * x0 * sqrt(1 - x0**2 - x1**2)
     y = 2 * x1 * sqrt(1 - x0**2 - x1**2)
     z = 1 - 2 * d
-    return OpenMaya.MVector(x, y, z)
+    return vectype(x, y, z)
 
 
-def hemispheral_vector(axis, vect=OpenMaya.MFloatVector):
+def hemispheral_vector(axis, vectype=OpenMaya.MFloatVector):
     '''Generate a random unit vector in the hemisphere defined by axis
 
     :param axis: OpenMaya.MVector representing axis of the hemisphere
-    :returns: OpenMaya.MVector
+    :param vectype: Return type of vector
     '''
 
     d = 1
@@ -35,17 +35,17 @@ def hemispheral_vector(axis, vect=OpenMaya.MFloatVector):
     x = 2 * x0 * sqrt(1 - x0**2 - x1**2)
     y = 2 * x1 * sqrt(1 - x0**2 - x1**2)
     z = 1 - 2 * d
-    result = vect(x, y, z)
+    result = vectype(x, y, z)
     if result * axis < 0:
         result = -result
     return result
 
 
-def rotate_vectors(vectors, orientation, vect=OpenMaya.MVector):
+def rotate_vectors(vectors, orientation, vectype=OpenMaya.MVector):
 
     q = OpenMaya.MVector.kYaxisVector.rotateTo(orientation)
     for v in vectors:
-        yield vect(v.rotateBy(q))
+        yield vectype(v.rotateBy(q))
 
 
 def time_em(n):
@@ -79,6 +79,3 @@ def time_em(n):
     with stopwatch('spheral_vector'):
         for i in xrange(n):
             spheral_vector()
-
-
-time_em(1000)
