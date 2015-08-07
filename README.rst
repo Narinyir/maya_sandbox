@@ -18,3 +18,9 @@ Ambient Occlusion algorithms with test functions that apply ambient occlusion to
 grids
 -----
 Various grid structures including Octrees.
+
+
+Installation
+============
+Clone this repository *git clone https://github.com/danbradham/maya_sandbox.git*
+Place the cloned path on your *MAYA_MODULE_PATH* environment variable
