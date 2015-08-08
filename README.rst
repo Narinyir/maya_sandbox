@@ -9,13 +9,9 @@ Python Modules
 
 spheral
 -------
-Uniformly distribute points on a sphere or hemisphere. Useful for ray casting!
+Uniformly distribute points on a sphere or hemisphere. Useful for ray casting
 
-spheralpoints
--------------
-Various implementations of spheral and hermispheral point generation.
-
-ambientocclusion
+occlusion
 ----------------
 Ambient Occlusion algorithms with test functions that apply ambient occlusion to a vertex color set.
 

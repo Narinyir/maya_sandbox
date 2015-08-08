@@ -1,4 +1,4 @@
-+ PLATFORM:win64 maya_sandbox 0.1.0 ../maya_sandbox/platforms/win64
++ PLATFORM:win64 maya_sandbox 0.1.1 ../maya_sandbox/platforms/win64
 MYMODULE_LOCATION:=
 MYMODULE_SHADERS_LOCATION:=shaders
 MYMODULE_INCLUDE_LOCATION:=shaders/include
@@ -8,7 +8,7 @@ icons: ../../icons
 presets: ../../presets
 scripts: ../../scripts
 
-+ PLATFORM:mac maya_sandbox 0.1.0 ../maya_sandbox/platforms/osx
++ PLATFORM:mac maya_sandbox 0.1.1 ../maya_sandbox/platforms/osx
 MYMODULE_LOCATION:=
 MYMODULE_SHADERS_LOCATION:=shaders
 MYMODULE_INCLUDE_LOCATION:=shaders/include
@@ -18,7 +18,7 @@ icons: ../../icons
 presets: ../../presets
 scripts: ../../scripts
 
-+ PLATFORM:linux maya_sandbox 0.1.0 ../maya_sandbox/platforms/linux
++ PLATFORM:linux maya_sandbox 0.1.1 ../maya_sandbox/platforms/linux
 MYMODULE_LOCATION:=
 MYMODULE_SHADERS_LOCATION:=shaders
 MYMODULE_INCLUDE_LOCATION:=shaders/include
