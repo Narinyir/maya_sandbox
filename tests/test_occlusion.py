@@ -2,7 +2,7 @@ from maya.api import OpenMaya
 import occlusion
 import sandbox
 
-scene = sandbox.get_path('scenes', 'ambient_occlusion.ma')
+scene = sandbox.get_path('scenes', 'test_occlusion.ma')
 
 
 def apply_ao(shape, num_rays, max_dist, falloff, random, smooth_iterations):
@@ -70,7 +70,7 @@ def run_benchmarks(scene, shape, ray_set, max_dist,
 run_benchmarks(
     scene=scene,
     shape='testShape',
-    ray_set=[6],
+    ray_set=[48],
     max_dist=1,
     falloff=1,
     random=False,
