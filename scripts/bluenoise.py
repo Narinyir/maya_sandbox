@@ -62,17 +62,41 @@ class Grid2D(dict):
 
     def get_neighbors(self, x, y):
         neighbors = []
-        for x_offset in xrange(-1, 2):
-            for y_offset in xrange(-1, 2):
-                candidate = (x + x_offset, y + y_offset)
-                if candidate in self:
-                    neighbors.append(self[candidate])
+        candidates = [(x - 1, y + 1), (x, y + 1), (x + 1, y + 1),
+                      (x - 1, y), (x + 1, y),
+                      (x - 1, y - 1), (x, y - 1), (x + 1, y - 1)]
+        for candidate in candidates:
+            if candidate in self:
+                neighbors.append(self[candidate])
         return neighbors
+
+    def bounds(self):
+        cells = grid.iterkeys()
+        xmax, ymax = cells.next()
+        xmin, ymin = xmax, ymax
+        for x, y in cells:
+            if x > xmax:
+                xmax = x
+            if x < xmin:
+                xmin = x
+            if y > ymax:
+                ymax = y
+            if y < ymin:
+                ymin = y
+        return Bounds2((xmin, ymin), (xmax, ymax))
+
+    # def get_nearest_neighbor(self, point):
+    #     if not len(self):
+    #         return None
+
+    #     cell = self.get_cell(point)
+    #     candidates = []
+    #     while len(candidates) != 1:
 
     def get_cell(self, point):
         x = floor(point.x / self.cell_size)
         y = floor(point.y / self.cell_size)
-        return vector2(x, y)
+        return x, y
 
     def points(self):
         return self.values()
