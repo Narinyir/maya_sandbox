@@ -9,6 +9,20 @@ vector3 = namedtuple('vector3', 'x y z')
 
 
 class Bounds2(object):
+    '''2D Bounding Box object stored as two 2D vectors (minimum corner,
+    maximum corner).
+
+    usage::
+
+        bounds = Bounds2(minimum=(-10, -10), maximum=(10, 10))
+        assert bounds.contains(vector2(9, 1)) == True
+
+        # OR
+
+        from random import uniform
+        pnts = [(uniform(-10, 10), uniform(-10, 10)) for i in xrange(1000)]
+        bounds = Bounds2.from_points(pnts)
+    '''
 
     def __init__(self, minimum, maximum):
         self.minimum = minimum
